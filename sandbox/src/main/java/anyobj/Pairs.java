@@ -23,7 +23,7 @@ public class Pairs {
 		pairs.add(p);
 	}
 	
-	public Pairs list(Pair query) {
+	public Pairs select(Pair query) {
 		Pairs ps = new Pairs();
 		
 		for (final Pair p: pairs) {
@@ -35,8 +35,8 @@ public class Pairs {
 		return ps;
 	}
 	
-	public Pairs list(Name x, Name y) {
-		return list(new Pair(x, y));
+	public Pairs select(Label x, Label y) {
+		return select(new Pair(x, y));
 	}
 
 	@Override

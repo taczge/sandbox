@@ -2,10 +2,10 @@ package anyobj;
 
 public class Pair {
 
-	private final Name first;
-	private final Name second;
+	private final Label first;
+	private final Label second;
 	
-	public Pair(Name first, Name second) {
+	public Pair(Label first, Label second) {
 		this.first = first;
 		this.second = second;
 	}

@@ -1,25 +1,25 @@
 package anyobj;
 
-public class Name {
+public class Label {
 	
-	public static final Name ANY = new Name("**Name#ANY**") {
+	public static final Label ANY = new Label("**Label#ANY**") {
 		@Override
 		public boolean equals(Object o) {
-			return o instanceof Name;
+			return o instanceof Label;
 		}
 	};
 
-	private final String name;
+	private final String label;
 	
-	public Name(String name) {
-		this.name = name;
+	public Label(String label) {
+		this.label = label;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((label == null) ? 0 : label.hashCode());
 		return result;
 	}
 
@@ -31,18 +31,18 @@ public class Name {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Name other = (Name) obj;
-		if (name == null) {
-			if (other.name != null)
+		Label other = (Label) obj;
+		if (label == null) {
+			if (other.label != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!label.equals(other.label))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return name;
+		return label;
 	}
 
 }
