@@ -3,4 +3,12 @@
   <groupId>taczge</groupId>
   <artifactId>sandbox</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+  	<dependency>
+  		<groupId>org.apache.jena</groupId>
+  		<artifactId>apache-jena-libs</artifactId>
+  		<version>2.11.1</version>
+  		<type>pom</type>
+  	</dependency>
+  </dependencies>
 </project>
