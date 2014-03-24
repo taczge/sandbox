@@ -11,7 +11,7 @@ import com.hp.hpl.jena.rdf.model.RDFList;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 
-public class Main {
+public class Ontology {
 
 	public static void main(String[] args) {
 		OntModel om = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RULE_INF);
