@@ -1,0 +1,19 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix d:    <http://dbpedia.org/resource/> .
+@prefix do:   <http://dbpedia.org/ontology/> .
+@prefix dp:   <http://dbpedia.org/property/> .
+@prefix :     <http://example.org/> .
+
+:s1 :p :o1 .
+:s1 :p :o1 .
+:s1 :p :o2 .
+
+:s1 :q :o3 .
+:s1 :q :o4 .
+
+:s2 :p :o1 .
+
+:s3 :p :o1 .
+:s3 :p :o1 .
