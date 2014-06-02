@@ -11,9 +11,9 @@ public class Main {
 	
 	public static void main(String[] args) {		
 		Set<Team> teams = Sets.newHashSet(
-				Team.of("1", "2", "3"),
-				Team.of("A", "B", "C"),
-				Team.of("a", "b", "c"));
+				Team.of("person1", "person2", "person3"),
+				Team.of("personA", "personB", "personC"),
+				Team.of("persona", "personb", "personc"));
 		
 		Set<Person> byReduce = teams.stream()
 				.map   ( team -> team.listMember() )
@@ -23,6 +23,7 @@ public class Main {
 				.flatMap( team -> team.listMember().stream() )
 				.collect( Collectors.toSet() );
 		
-		System.out.println("byReduce.equals(byFlatMap): " + byReduce.equals(byFlatMap));
+		System.out.println(
+				"byReduce.equals(byFlatMap): " + byReduce.equals(byFlatMap) );
 	}
 }
