@@ -1,4 +1,4 @@
-package anyobj;
+package etc.anyobj;
 
 public class Label {
 	

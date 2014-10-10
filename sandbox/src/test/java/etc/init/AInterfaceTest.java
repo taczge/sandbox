@@ -1,6 +1,8 @@
-package init;
+package etc.init;
 
 import org.junit.Test;
+
+import etc.init.AInterface;
 
 public class AInterfaceTest implements AInterface {
 

@@ -1,4 +1,4 @@
-package imobj;
+package etc.imobj;
 
 public class SlowPerson implements Person {
 	

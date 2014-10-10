@@ -1,4 +1,4 @@
-package flatmap;
+package etc.flatmap;
 
 import java.util.Collections;
 import java.util.Set;

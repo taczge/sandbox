@@ -1,4 +1,4 @@
-package jena;
+package etc.jena;
 
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;

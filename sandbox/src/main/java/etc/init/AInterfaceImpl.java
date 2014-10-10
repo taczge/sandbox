@@ -1,4 +1,4 @@
-package init;
+package etc.init;
 
 public class AInterfaceImpl implements AInterface {
 

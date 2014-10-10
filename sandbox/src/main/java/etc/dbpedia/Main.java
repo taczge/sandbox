@@ -1,4 +1,4 @@
-package dbpedia;
+package etc.dbpedia;
 
 import java.io.File;
 import java.io.FileWriter;

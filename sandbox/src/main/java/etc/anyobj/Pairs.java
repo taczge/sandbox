@@ -1,4 +1,4 @@
-package anyobj;
+package etc.anyobj;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package flatmap;
+package etc.flatmap;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
