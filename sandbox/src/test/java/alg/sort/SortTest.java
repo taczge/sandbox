@@ -12,43 +12,16 @@ import lombok.val;
 
 import org.junit.Test;
 
-import com.google.common.collect.Lists;
-
-public class BubbleTest {
+public class SortTest {
 	
-	private Sort sut = new Bubble();
 	private Comparator<Integer> comp = new Comparator<Integer>() {
 		@Override
 		public int compare(Integer o1, Integer o2) {
 			return o1 - o2;
 		}
 	};
-	
-	@Test
-	public void sort_0() {
-		val list = Collections.<Integer>emptyList();
-		val expected = Collections.emptyList();
-		
-		assertThat( sut.sort(list, comp), is(expected) );
-	}
-	
-	@Test
-	public void sort_1() throws Exception {
-		val list = Lists.newArrayList(1);
-		val expected = Lists.newArrayList(1);
-		
-		assertThat( sut.sort(list, comp), is(expected) );
-	}
 
-	@Test
-	public void sort_2() throws Exception {
-		val list = Lists.newArrayList(2, 1);
-		val expected = Lists.newArrayList(1, 2);
-		
-		assertThat( sut.sort(list, comp), is(expected) );
-	}
-
-	private final int MAX_ELEMENT = 20;
+	private final int MAX_ELEMENT = 10;
 	private List<Integer> createOrderdList() {
 		val list = new ArrayList<Integer>( MAX_ELEMENT );
 		
@@ -66,12 +39,17 @@ public class BubbleTest {
 		
 		return shuffled;
 	}
-
-	@Test
-	public void sort_many() throws Exception {
+	
+	public void test(Sort s) throws Exception {
 		val orderd   = createOrderdList();
 		val shuffled = shuffle(orderd);
 
-		assertThat( sut.sort(shuffled, comp), is(orderd) );
+		assertThat( s.sort(shuffled, comp), is(orderd) );
 	}
+
+	@Test
+	public void bubble() throws Exception {
+		test( new Bubble() );
+	}
+	
 }
