@@ -1,18 +1,19 @@
 package queen;
 
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.val;
 
 @EqualsAndHashCode
 public class Chessboad {
 	
-	@Getter private final int size;
 	private final boolean[][] boad;
 
 	public Chessboad(int size) {
-		this.size = size;
 		this.boad = new boolean[size][size];
+	}
+	
+	public int size() {
+		return boad.length;
 	}
 		
 	public void putQueen(int x, int y) {
@@ -28,9 +29,9 @@ public class Chessboad {
 		val builder = new StringBuilder();
 		
 		writeXAxes(builder);
-		for ( int y = 0; y < size; y++ ) {
+		for ( int y = 0; y < size(); y++ ) {
 			writeYCordinate(builder, y);
-			for ( int x = 0; x < size; x++ ) {
+			for ( int x = 0; x < size(); x++ ) {
 				writeCell(builder, x, y);
 			}
 			writeNewline(builder);
@@ -41,7 +42,7 @@ public class Chessboad {
 	
 	private void writeXAxes(StringBuilder builder) {
 		builder.append(" ");
-		for ( int i = 0; i < size; i++ ) {
+		for ( int i = 0; i < size(); i++ ) {
 			builder.append(i);
 		}
 		builder.append( System.lineSeparator() );
@@ -98,7 +99,7 @@ public class Chessboad {
 	}
 	
 	private boolean existsQueenVertically(int x) {
-		for ( int y = 0; y < size; y++ ) {
+		for ( int y = 0; y < size(); y++ ) {
 			if ( existsQueen(x, y) ) {
 				return true;
 			}
@@ -108,7 +109,7 @@ public class Chessboad {
 	}
 	
 	private boolean existsQueenHorizontally(int y) {
-		for ( int x = 0; x < size; x++ ) {
+		for ( int x = 0; x < size(); x++ ) {
 			if ( existsQueen(x, y) ) {
 				return true;
 			}
@@ -118,7 +119,7 @@ public class Chessboad {
 	}
 
 	private boolean isOnBoad(int x, int y) {
-		return (0 <= x && x < size) && (0 <= y && y < size);   
+		return (0 <= x && x < size()) && (0 <= y && y < size());   
 	}
 
 	private boolean existsQueenUpperLeft(int x, int y) {
@@ -162,10 +163,10 @@ public class Chessboad {
 	}
 
 	public Chessboad copy() {
-		val other = new Chessboad( this.size );
+		val other = new Chessboad( this.size() );
 		
-		for ( int ix = 0; ix < size; ix++ ) {
-			for ( int iy = 0; iy < size; iy++ ) {
+		for ( int ix = 0; ix < size(); ix++ ) {
+			for ( int iy = 0; iy < size(); iy++ ) {
 				if ( this.existsQueen(ix, iy) ) {
 					other.putQueen(ix, iy);
 				}

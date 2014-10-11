@@ -13,12 +13,12 @@ public class Solver {
 	}
 	
 	private List<Chessboad> execute(Chessboad boad, int x) {
-		if ( x >= boad.getSize() ) {
+		if ( x >= boad.size() ) {
 			return Collections.singletonList( boad );
 		}
 		
 		val answer = new LinkedList<Chessboad>(); 
-		for ( int iy = 0; iy < boad.getSize(); iy++ ) {
+		for ( int iy = 0; iy < boad.size(); iy++ ) {
 			if ( boad.threatensOtherQueen(x, iy) ) {
 				continue;
 			}
