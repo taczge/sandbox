@@ -8,9 +8,11 @@ public class Main {
 	private Main() {}
 
 	public static void main(String[] args) {
-		val answer = new Solver().execute( 8 );
-		
-		answer.stream().forEach( System.out::println );
-		System.out.println( answer.size() + " answers is found.");
+		for ( int i = 1; i < 16; i++ ) {
+			val answer = new Solver().execute( i );
+			val msg = String.format("%2d-Queen: %d", i, answer.size());
+
+			System.out.println( msg );
+		}
 	}
 }
