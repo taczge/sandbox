@@ -1,7 +1,7 @@
 package alg.sort;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -50,6 +50,11 @@ public class SortTest {
 	@Test
 	public void bubble() throws Exception {
 		test( new Bubble() );
+	}
+	
+	@Test
+	public void selection() throws Exception {
+		test( new Selection() );
 	}
 	
 }
