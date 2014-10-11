@@ -1,7 +1,7 @@
 package queen;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 import lombok.val;
 
 import org.junit.Test;
@@ -39,5 +39,77 @@ public class ChessboadTest {
 
 		assertThat( sut.existsQueenAt(x, y), is(true) );
 	}
+	
+	@Test
+	public void threatensOtherQueen_upper() throws Exception {
+		val sut = new Chessboad( BOAD_SIZE );
+		sut.putQueenAt(3, 3);
 
+		assertThat( sut.threatensOtherQueen(3, 0), is(true) );
+	}
+
+	@Test
+	public void threatensOtherQueen_lower() throws Exception {
+		val sut = new Chessboad( BOAD_SIZE );
+		sut.putQueenAt(3, 3);
+
+		assertThat( sut.threatensOtherQueen(3, 7), is(true) );
+	}
+
+	@Test
+	public void threatensOtherQueen_left() throws Exception {
+		val sut = new Chessboad( BOAD_SIZE );
+		sut.putQueenAt(3, 3);
+
+		assertThat( sut.threatensOtherQueen(0, 3), is(true) );
+	}
+
+	@Test
+	public void threatensOtherQueen_right() throws Exception {
+		val sut = new Chessboad( BOAD_SIZE );
+		sut.putQueenAt(3, 3);
+
+		assertThat( sut.threatensOtherQueen(7, 3), is(true) );
+	}
+
+	@Test
+	public void threatensOtherQueen_upperLeft() throws Exception {
+		val sut = new Chessboad( BOAD_SIZE );
+		sut.putQueenAt(3, 5);
+
+		assertThat( sut.threatensOtherQueen(2, 4), is(true) );
+		assertThat( sut.threatensOtherQueen(1, 3), is(true) );
+		assertThat( sut.threatensOtherQueen(0, 2), is(true) );
+	}
+
+	@Test
+	public void threatensOtherQueen_lowerLeft() throws Exception {
+		val sut = new Chessboad( BOAD_SIZE );
+		sut.putQueenAt(3, 5);
+
+		assertThat( sut.threatensOtherQueen(2, 6), is(true) );
+		assertThat( sut.threatensOtherQueen(1, 7), is(true) );
+	}
+
+	@Test
+	public void threatensOtherQueen_upperRight() throws Exception {
+		val sut = new Chessboad( BOAD_SIZE );
+		sut.putQueenAt(3, 5);
+
+		assertThat( sut.threatensOtherQueen(4, 4), is(true) );
+		assertThat( sut.threatensOtherQueen(5, 3), is(true) );
+		assertThat( sut.threatensOtherQueen(6, 2), is(true) );
+		assertThat( sut.threatensOtherQueen(7, 1), is(true) );
+	}
+
+	@Test
+	public void threatensOtherQueen_lowerRight() throws Exception {
+		val sut = new Chessboad( BOAD_SIZE );
+		sut.putQueenAt(3, 5);
+
+		assertThat( sut.threatensOtherQueen(4, 6), is(true) );
+		assertThat( sut.threatensOtherQueen(5, 7), is(true) );
+	}
+
+	
 }

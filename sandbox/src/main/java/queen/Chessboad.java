@@ -31,10 +31,10 @@ public class Chessboad {
 		val builder = new StringBuilder();
 		
 		writeXAxes(builder);
-		for ( int i = 0; i < width; i++ ) {
-			writeYCordinate(builder, i);
-			for ( int j = 0; j < height; j++ ) {
-				writeCell(builder, i, j);
+		for ( int y = 0; y < width; y++ ) {
+			writeYCordinate(builder, y);
+			for ( int x = 0; x < height; x++ ) {
+				writeCell(builder, x, y);
 			}
 			writeNewline(builder);
 		}
@@ -65,4 +65,98 @@ public class Chessboad {
 	private void writeNewline(StringBuilder builder) {
 		builder.append( System.lineSeparator() );
 	}
+	
+	public boolean threatensOtherQueen(int x, int y) {
+		if ( existsQueenVertically(x) ) {
+			return true;
+		}
+		
+		if ( existsQueenHorizontally(y) ) {
+			return true;
+		}
+		
+		if ( existsQueenUpperLeft(x, y) ) {
+			return true;
+		}
+
+		if ( existsQueenUpperRight(x, y) ) {
+			return true;
+		}
+
+		if ( existsQueenLowerLeft(x, y) ) {
+			return true;
+		}
+
+		if ( existsQueenLowerRight(x, y) ) {
+			return true;
+		}
+
+		return false;
+	}
+	
+	private boolean existsQueenVertically(int x) {
+		for ( int y = 0; y < height; y++ ) {
+			if ( existsQueenAt(x, y) ) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+	
+	private boolean existsQueenHorizontally(int y) {
+		for ( int x = 0; x < height; x++ ) {
+			if ( existsQueenAt(x, y) ) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	private boolean isOnBoad(int x, int y) {
+		return (0 <= x && x < width) && (0 <= y && y < height);   
+	}
+
+	private boolean existsQueenUpperLeft(int x, int y) {
+		for ( int i = 0; isOnBoad(x - i, y - i); i++ ) {
+			if ( existsQueenAt(x - i, y - i) ) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+
+	private boolean existsQueenUpperRight(int x, int y) {
+		for ( int i = 0; isOnBoad(x + i, y - i); i++ ) {
+			if ( existsQueenAt(x + i, y - i) ) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+
+	private boolean existsQueenLowerLeft(int x, int y) {
+		for ( int i = 0; isOnBoad(x - i, y + i); i++ ) {
+			if ( existsQueenAt(x - i, y + i) ) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+
+	private boolean existsQueenLowerRight(int x, int y) {
+		for ( int i = 0; isOnBoad(x + i, y + i); i++ ) {
+			if ( existsQueenAt(x + i, y + i) ) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+
+
 }
