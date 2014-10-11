@@ -1,17 +1,16 @@
 package alg.sort;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 import lombok.val;
 
-public class Selection implements Sort {
+public class Selection extends AbstractSort {
 
 	@Override
 	public <T> List<T> sort(List<T> list, Comparator<? super T> c) {
-		val l = new ArrayList<T>( list );
+		val l = createWorkingList( list );
 		
 		for ( int i = 0; i < l.size() - 1; i++ ) {
 			int minIndex = i;
@@ -31,7 +30,4 @@ public class Selection implements Sort {
 		return l;
 	}
 
-	private <T> boolean isWrongOrder(T less, T greater, Comparator<T> c) {
-		return c.compare(less, greater) > 0;
-	}
 }
