@@ -17,15 +17,11 @@ public class Chessboad {
 		this.boad   = new boolean[width][height];
 	}
 		
-	public void putQueenAt(int x, int y) {
+	public void putQueen(int x, int y) {
 		boad[x][y] = true;
 	}
 	
-	public void removeQueenAt(int x, int y) {
-		boad[x][y] = false;
-	}
-	
-	public boolean existsQueenAt(int x, int y) {
+	public boolean existsQueen(int x, int y) {
 		return boad[x][y];
 	}
 	
@@ -58,7 +54,7 @@ public class Chessboad {
 	}
 	
 	private void writeCell(StringBuilder builder, int x, int y) {
-		if ( existsQueenAt(x, y) ) {
+		if ( existsQueen(x, y) ) {
 			builder.append( "Q" );
 			return;
 		} 
@@ -105,7 +101,7 @@ public class Chessboad {
 	
 	private boolean existsQueenVertically(int x) {
 		for ( int y = 0; y < height; y++ ) {
-			if ( existsQueenAt(x, y) ) {
+			if ( existsQueen(x, y) ) {
 				return true;
 			}
 		}
@@ -115,7 +111,7 @@ public class Chessboad {
 	
 	private boolean existsQueenHorizontally(int y) {
 		for ( int x = 0; x < height; x++ ) {
-			if ( existsQueenAt(x, y) ) {
+			if ( existsQueen(x, y) ) {
 				return true;
 			}
 		}
@@ -129,7 +125,7 @@ public class Chessboad {
 
 	private boolean existsQueenUpperLeft(int x, int y) {
 		for ( int i = 0; isOnBoad(x - i, y - i); i++ ) {
-			if ( existsQueenAt(x - i, y - i) ) {
+			if ( existsQueen(x - i, y - i) ) {
 				return true;
 			}
 		}
@@ -139,7 +135,7 @@ public class Chessboad {
 
 	private boolean existsQueenUpperRight(int x, int y) {
 		for ( int i = 0; isOnBoad(x + i, y - i); i++ ) {
-			if ( existsQueenAt(x + i, y - i) ) {
+			if ( existsQueen(x + i, y - i) ) {
 				return true;
 			}
 		}
@@ -149,7 +145,7 @@ public class Chessboad {
 
 	private boolean existsQueenLowerLeft(int x, int y) {
 		for ( int i = 0; isOnBoad(x - i, y + i); i++ ) {
-			if ( existsQueenAt(x - i, y + i) ) {
+			if ( existsQueen(x - i, y + i) ) {
 				return true;
 			}
 		}
@@ -159,7 +155,7 @@ public class Chessboad {
 
 	private boolean existsQueenLowerRight(int x, int y) {
 		for ( int i = 0; isOnBoad(x + i, y + i); i++ ) {
-			if ( existsQueenAt(x + i, y + i) ) {
+			if ( existsQueen(x + i, y + i) ) {
 				return true;
 			}
 		}
@@ -172,8 +168,8 @@ public class Chessboad {
 		
 		for ( int ix = 0; ix < this.width; ix++ ) {
 			for ( int iy = 0; iy < this.height; iy++ ) {
-				if ( this.existsQueenAt(ix, iy) ) {
-					other.putQueenAt(ix, iy);
+				if ( this.existsQueen(ix, iy) ) {
+					other.putQueen(ix, iy);
 				}
 			}
 		}

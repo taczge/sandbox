@@ -24,7 +24,7 @@ public class Solver {
 			}
 			
 			val newBoad = boad.copy();
-			newBoad.putQueenAt(x, iy);
+			newBoad.putQueen(x, iy);
 
 			answer.addAll( execute(newBoad, x + 1) );
 		}
