@@ -12,7 +12,7 @@ public class Chessboad {
 
 	public Chessboad(int size) {
 		this.size = size;
-		this.boad   = new boolean[size][size];
+		this.boad = new boolean[size][size];
 	}
 		
 	public void putQueen(int x, int y) {
