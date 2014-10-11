@@ -111,5 +111,24 @@ public class ChessboadTest {
 		assertThat( sut.threatensOtherQueen(5, 7), is(true) );
 	}
 
+	@Test
+	public void copy_() throws Exception {
+		val size = 2;
+		val sut = new Chessboad( size );
+		sut.putQueenAt(0, 0);
+		
+		val expected = new Chessboad( size );
+		expected.putQueenAt(0, 0);
+		
+		assertThat( sut.copy(), is(expected) );
+	}
+
+	@Test
+	public void copy_createOtherInstance() throws Exception {
+		val sut = new Chessboad( BOAD_SIZE );
+		
+		assertThat( sut != sut.copy(), is(true) );
+	}
+
 	
 }

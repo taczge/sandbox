@@ -1,11 +1,14 @@
 package queen;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.val;
 
+@EqualsAndHashCode
 public class Chessboad {
 	
-	private final int width;
-	private final int height;
+	@Getter private final int width;
+	@Getter private final int height;
 	private final boolean[][] boad;
 
 	public Chessboad(int size) {
@@ -13,7 +16,7 @@ public class Chessboad {
 		this.height = size;
 		this.boad   = new boolean[width][height];
 	}
-	
+		
 	public void putQueenAt(int x, int y) {
 		boad[x][y] = true;
 	}
@@ -57,9 +60,15 @@ public class Chessboad {
 	private void writeCell(StringBuilder builder, int x, int y) {
 		if ( existsQueenAt(x, y) ) {
 			builder.append( "Q" );
-		} else {
-			builder.append( "-" );
+			return;
+		} 
+		
+		if ( threatensOtherQueen(x, y) ) {
+			builder.append("*");
+			return;
 		}
+		
+		builder.append( "-" );
 	}
 	
 	private void writeNewline(StringBuilder builder) {
@@ -158,5 +167,18 @@ public class Chessboad {
 		return false;
 	}
 
-
+	public Chessboad copy() {
+		val other = new Chessboad( this.height );
+		
+		for ( int ix = 0; ix < this.width; ix++ ) {
+			for ( int iy = 0; iy < this.height; iy++ ) {
+				if ( this.existsQueenAt(ix, iy) ) {
+					other.putQueenAt(ix, iy);
+				}
+			}
+		}
+		
+		return other;
+	}
+	
 }
