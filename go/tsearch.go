@@ -4,6 +4,19 @@ import (
 	"fmt"
 )
 
+const (
+	isDebug = false
+)
+
+func repeat(text string, count int) string {
+	str := ""
+	for i := 0; i < count; i++ {
+		str += text
+	}
+
+	return str
+}
+
 func print(text string, pattern string, position int) {
 	fmt.Printf("%s\n", text)
 
@@ -12,7 +25,7 @@ func print(text string, pattern string, position int) {
 }
 
 func debug(txt string, pat string, padding int, txt_pos int, pat_pos int) {
-	if false {
+	if isDebug {
 		fmt.Printf("%s*\n", repeat(" ", txt_pos))
 		fmt.Printf("%s\n", txt)
 		fmt.Printf("%s%s\n", repeat(" ", padding), pat)
@@ -44,25 +57,19 @@ func brute_force_search(txt string, pat string) int {
 	return -1
 }
 
-func repeat(text string, count int) string {
-	str := ""
-	for i := 0; i < count; i++ {
-		str += text
-	}
-
-	return str
-}
-
 func search(txt string, pat string) {
 	index := brute_force_search(txt, pat)
 
-	fmt.Printf("index = %d: %s <-> %s\n", index, txt, pat)
-	if index != -1 {
+	if index == -1 {
+		fmt.Printf("%s: %s?\n", txt, pat)
+	} else {
 		print(txt, pat, index)
 	}
+	fmt.Printf("--\n")
 }
 
 func main() {
 	search("abacb", "ac")
 	search("abacb", "aa")
+	search("abadecagabcacb", "abc")
 }
